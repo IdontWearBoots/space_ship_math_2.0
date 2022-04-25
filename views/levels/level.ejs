@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<title>Level <%= level_n %> </title>
+	<link type="text/css" rel="stylesheet" href="../css/levels/play_level.css">
+	<script src="../js/jquery.js"></script>
+	<script defer src="../js/levels/script.js"></script>
+	<script defer src="../js/audio.js"></script>
+	<script defer src="../js/pause.js"></script>
+
+</head>
+
+<body>
+
+	<!-- lol this was the only way i could do this -->
+	<p style="display: none;" id="time"><%= level_time %></p>
+
+	<button type="button" name="button" onclick="pause()"> 
+		<img class="button-img" src="../imgs/pause.png" alt="">
+	</button>
+
+	<div class="allButNo">
+
+		<div id="question">
+			<h2 id="ques">1 x 1</h2>
+			<input id="ans" type="number">
+		</div>
+		<div id="loseMess">
+			<h1 id="h1" class="small">Current score: 0</h1>
+			<h2 class="emojis"></h2>
+		</div>
+
+	</div>
+
+	<div class="popup pause" name="pause">
+
+		<h1>PAUSE</h1>
+
+		<button type="button" title="Continue" class="pauseButton" onclick="closePause()">
+			<img class="button-img" src="../imgs/play.png" alt="">
+			- Resume
+		</button><br>
+
+		<a href="level_home">
+			<button class="return" title="Return to menu">
+				<img class="button-img" src="../imgs/home.png" alt="">
+				- Return to menu
+			</button>
+		</a><br>
+
+		<button type="button" title="Restart" onclick="restart()" class="restart">
+			<img class="button-img" src="../imgs/restart.png" alt="">
+			- Restart
+		</button><br>
+
+		<label for="audio?">Do you want audio to play : </label>
+		<input id="wantAudio" type="checkbox" name="audio?" value="">
+
+	</div>
+
+	<script>
+		const time = Number($("#time").text());
+	</script>
+
+</body>
+
+</html>

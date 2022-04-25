@@ -46,9 +46,10 @@ function restart(){
   clearInterval(intervalId)
   try {
     clearInterval(intervalId2)
-  }catch(err){ }
+  }catch(err){ 
+    console.error(err);
+  }
 
-  time = 100000;
   num1 = 1;
   num2 = 1;
   max = 0;
@@ -67,9 +68,3 @@ function restart(){
   document.querySelector(".start").style.display = "inline-block"
   closePause()
 }
-
-/*document.addEventListener("keydown", (event)=>{
-  if (event.key === "Enter"){
-    evaluate();
-  }
-});*/

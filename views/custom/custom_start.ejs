@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en-us">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1">
   <title>Custom level</title>
-  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="../css/custom/custom.css">
 
 </head>
 
@@ -66,12 +66,11 @@
     <input id="wantAudio" type="checkbox" name="audio?" value="">
   </div>
 
-  <script type="text/javascript">
+  <script type="module">
 
     var mode = 0, time, playAudio, max, strikes;
     function closePopUp() {
-      // when the "ready" button is pressed all the global actually useful variables are created
-      // most of the functionality of this page is thanks to functions which means i can do this
+      
       time = Math.abs(Number(document.getElementById("seconds").value) * 1000);
       playAudio = document.getElementById("audio?").checked;
       max = Number(document.getElementById("max").value)
@@ -124,3 +123,4 @@
 </body>
 
 </html>
+
