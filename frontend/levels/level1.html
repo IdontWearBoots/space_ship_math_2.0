@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Level 1</title>
+    <link rel="stylesheet" href="playGame.css">
+    <script defer src="script.js"></script>
+    <script defer src="../globalFiles/js/audio.js"> </script>
+    <script defer src="../globalFiles/js/pause.js"> </script>
+
+  </head>
+  <body>
+    <button type="button" name="button" onclick="pause()"> <img class="button-img" src="../imgs/pause.png" alt=""> </button>
+
+    <div class="allButNo">
+
+      <div id="question">
+        <h2 id="ques">1 x 1</h2>
+        <input id="ans" type="number">
+      </div>
+      <div id="loseMess">
+        <h1 id="h1" class="small">Current score: 0</h1>
+        <h2 class="emojis"></h2>
+      </div>
+
+    </div>
+
+    <div class="popup pause" name="pause">
+
+      <h1>PAUSE</h1>
+
+      <button type="button" title="Continue" class="pauseButton" onclick="closePause()">
+        <img class="button-img" src="../imgs/play.png" alt="">
+        - Resume
+      </button><br>
+
+      <a href="level_home.html">
+        <button class="return" title="Return to menu">
+          <img class="button-img" src="../imgs/home.png" alt="">
+           - Return to menu
+        </button>
+      </a><br>
+
+      <button type="button" title="Restart" onclick="restart()" class="restart">
+        <img class="button-img" src="../imgs/restart.png" alt="">
+        - Restart
+      </button><br>
+
+      <label for="audio?">Do you want audio to play : </label>
+      <input id="wantAudio" type="checkbox" name="audio?" value="">
+    </div>
+
+    <script type="text/javascript">
+      const time = 10000;
+    </script>
+    <audio src="wellDone.ogg" id="audio"></audio>
+  </body>
+</html>

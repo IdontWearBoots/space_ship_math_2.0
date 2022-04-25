@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zen</title>
+    <link rel="stylesheet" href="play_zen.css">
+    <script defer src="play_zen.js" charset="utf-8"></script>
+    <script src="../globalFiles/js/jquery.js"></script>
+
+  </head>
+  <body>
+
+    <div class="allButNo">
+
+      <div class="countdown">
+        Ready ?
+      </div>
+
+
+      <a href="zen_home.html">
+        <button class="return" title="Return to menu">
+          <img class="button-img" src="../imgs/home.png" alt="">
+           - Return to menu
+        </button>
+      </a>
+      <br>
+      <button type="button" title="Restart" onclick="restart()" class="restart">
+        <img class="button-img" src="../imgs/restart.png" alt="">
+        - Restart
+      </button>
+
+      <div id="question">
+        <h2 id="ques">1 x 1</h2>
+        <input id="ans" type="number" value="s">
+      </div>
+      <label for="showTime">Show stats: </label>
+      <input type="checkbox" id="showStats" name="showTime" value="0">
+      <h3 id="time"></h3>
+      <h3 id="ratio"></h3>
+    </div>
+  </body>
+</html>
