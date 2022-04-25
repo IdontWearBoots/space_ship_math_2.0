@@ -1,126 +1,68 @@
 <!DOCTYPE HTML>
-<html lang="en-us">
+<html lang="en-US">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1">
   <title>Custom level</title>
-  <link rel="stylesheet" href="../css/custom/custom.css">
-
+  <link rel="stylesheet" href="../css/custom/custom_start.css">
+  <script src="../js/jquery.js"></script>
 </head>
 
 <body>
 
-  <div class="start">
+  <form action="custom_start" method="post" class="start">
 
-    <h3 style="font-size: 2.5em;"> Start screen </h3>
+    <h3 style="font-size: 2.5em;"> Select settings : </h3>
 
-    <div class="selection">
-      <label for="seconds">Interval seconds : </label>
-      <input id="seconds" type="number" name="seconds" value=""><br>
-    </div>
+    <br>
 
-    <div class="selection">
-      <label for="max">Max number up until which times tables will generate :</label>
-      <input id="max" type="number" name="max" value=""><br>
-    </div>
+    <label for="seconds">Interval seconds : </label>
+    <input id="seconds" type="number" name="seconds" value=""><br>
 
-    <div class="selection">
-      <label for="audio?">Do you want audio to play? : </label>
-      <input id="audio?" type="checkbox" name="audio?" style="width:15px; height:15px;" checked><br>
-    </div>
+    <br>
 
-    <div class="selection">
-      <label for="mode">Mode : </label>
-      <select id="mode" class="mode" name="mode" style="width: 10%;">
-        <option value="0">Infinite : It just never ends</option>
-        <option value="1">Strikes : A certain amount of strikes and your out</option><br>
-      </select>
-    </div>
+    <label for="max">Max number up until which times tables will generate :</label>
+    <input id="max" type="number" name="max" value=""><br>
 
-    <div class="selection" id="numStrikes" style="display:none">
+    <br>
+
+    <label for="mode">Mode : </label>
+    <select id="mode" class="mode" name="mode" style="width: 10%;">
+      <option value="0" selected="selected">Infinite : It just never ends</option>
+      <option value="1">Strikes : A certain amount of strikes and your out</option>
+      <br>
+    </select>
+
+    <br>
+    <br>    
+
+    <div class="strikes-wrapper">
       <label for="strikes">Number of strikes : </label>
       <input id="strikes" type="number" name="strikes" value="3">
     </div>
 
     <br>
-    <button type="button" name="button" onclick="closePopUp()">I'm Ready!</button>
 
-  </div>
+    <button type="submit" class="submit">I'm Ready!</button>
 
-  <div class="pause" name="pause" style="display: none;">
+  </form>
 
-    <h1 style="font-size: 2.5em;">PAUSE</h1>
+  <script>
 
-    <button type="button" title="Continue" class="pauseButton" onclick="closePause()">
-      <img class="button-img" src="../imgs/play.png" alt="">
-      - Resume
-    </button><br>
+    $(".mode").change(function() {
+      let selected = $(this).val();
+      let strikesInput = $(".strikes-wrapper");
 
-    <button type="button" title="Restart" onclick="restart()" class="restart">
-      <img class="button-img" src="../imgs/restart.png" alt="">
-      - Restart
-    </button><br>
-
-    <label for="audio?">Do you want audio to play : </label>
-    <input id="wantAudio" type="checkbox" name="audio?" value="">
-  </div>
-
-  <script type="module">
-
-    var mode = 0, time, playAudio, max, strikes;
-    function closePopUp() {
-      
-      time = Math.abs(Number(document.getElementById("seconds").value) * 1000);
-      playAudio = document.getElementById("audio?").checked;
-      max = Number(document.getElementById("max").value)
-
-      // mode is a little special cause im checking if its = to 1 (mode "strikes")
-      // which means that it will never remove popup if i simply put mode = DOM @ "mode".value
-      // so i just set mode to: mode + DOM@("mode").value
-      // and just before else on line 95 set mode to -1 so that -1+1 = 0 and it all works
-      mode = mode+Number(document.getElementById("mode").value);
-
-      // the value of mode "strikes" = 1
-      // so check if mode (declared on line 77) == 1 (basically is mode "strikes")
-      if (mode === 1) {
-        // then make the already written but hidden numStrikes div visible
-        document.getElementById("numStrikes").style.display = "inline"
-
-        // then declare strikes
-        strikes = Number(document.getElementById("strikes").value)
-        // we need strikes to be declared to declare checkforlose (otherwise strikes would either be a simple var)
-        window.checkForLose = () => {
-          if (wrongAns >= strikes) {
-            clearInterval(intervalId);
-            clearInterval(intervalId2);
-            document.getElementById("correct").textContent = "Well unfortunatly you lost. But you did score " + correctAns + " points";
-            document.getElementById("wrong").textContent = " ";
-          }
-        }
-
-        mode = -1;
+      if (selected === "1") {
+        strikesInput.show();
       } else {
-
-        //otherwise just delete the popup
-        document.querySelector(".start").style.display = "none"
-
-        // and restart the intervals
-        window.intervalId = setInterval(updateQues, time)
-        try{
-          window.intervalId2 = setInterval(checkForLose, time/2)
-        }catch(err){
-
-        }
+        strikesInput.hide();
       }
+    });
 
-    }
   </script>
-  <script src="../globalFiles/audio.js"></script>
-  <script src="../globalFiles/pause.js"></script>
-  <script src="custom.js"> </script>
-  <audio src="wellDone.ogg" id="audio"></audio>
+
 </body>
 
 </html>
-

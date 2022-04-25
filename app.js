@@ -14,6 +14,10 @@ app.get("/", function (_, res) {
     });
 });
 
+app.post("/custom/custom_start", (req, res) => {
+    res.render("custom/custom_play", req.body);
+})
+
 app.get("/:dir/:file", (req, res) => {
     const [dir, file] = Object.values(req.params);
 

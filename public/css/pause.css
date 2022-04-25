@@ -1,0 +1,45 @@
+.pause {
+    display: none;
+    box-shadow: 15px 15px 33px 10px #284464;
+    font-family: Helvetica, sans-serif;
+    font-weight: 50;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 30%;
+    height: fit-content;
+    background-color: #909BB0;
+    color: #0B325E;
+    position: absolute;
+    top: 25%;
+    left: 33.5%;
+    right: 33.5%;
+}
+
+.btn-pause {
+    display: block;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px 16px;
+    margin: 24px auto;
+    background-color: #78BBE6;
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.4s;
+}
+.btn-pause:hover {
+    background-color: #F0FFFF;
+}
+
+.btn-img {
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #0B325E;
+}

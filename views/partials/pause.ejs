@@ -1,0 +1,33 @@
+<div class="popup pause" name="pause" style="display: none;">
+
+    <h1 style="font-size: 2.5em;">PAUSE</h1>
+
+    <button title="resume" class="close-pause btn-pause" onclick="closePause()">
+        <img class="btn-img" src="../imgs/play.png" alt="">
+        - Resume
+    </button>
+
+    <br>
+    
+    <a href="../">
+        <button title="return" class="return-home btn-pause btn-link">
+            <img class="btn-img" src="../imgs/home.png" alt="">
+            - Return to Home
+        </button>
+    </a>
+
+    <br>
+
+    <button title="restart" onclick="restart()" class="restart btn-pause">
+        <img class="btn-img" src="../imgs/restart.png" alt="">
+        - Restart
+    </button>
+
+    <br>
+
+    <label for="audio?">Do you want audio to play : </label>
+    <input id="wantAudio" type="checkbox" name="audio?" value="">
+
+    <br>
+    <br>
+</div>

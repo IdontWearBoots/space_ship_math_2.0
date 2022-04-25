@@ -5,7 +5,11 @@ body {
   color: #1B435D;
 }
 
-button{
+.strikes-wrapper {
+  display: none;
+}
+
+.submit {
   font-size: 16px;
   border-radius: 4px;
   padding: 10px 16px;
@@ -17,11 +21,6 @@ button{
   display: inline-block;
   transition: all 0.4s;
 }
-button:hover {
+.submit:hover {
   background-color: #F0FFFF;
-}
-
-.button-img{
-  width: 0.8em;
-  height: 0.8em;
 }
